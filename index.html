@@ -22,17 +22,23 @@
         let decodedUrl;
         try {
           decodedUrl = atob(encodedUrl);
+          // Check if "decodedUrl" is valid
+          if (decodedUrl) {
+            // Redirect the user to the decoded URL
+            window.location.href = decodedUrl;
+          } else {
+            // Display an error message to the user
+            const errorMessage = document.createElement('p');
+            errorMessage.textContent = 'Redirect error.';
+            document.body.appendChild(errorMessage);
+          }
         } catch (e) {
           console.error('Error decoding base64 URL:', e);
           // Display an error message to the user
           const errorMessage = document.createElement('p');
           errorMessage.textContent = 'Redirect error.';
           document.body.appendChild(errorMessage);
-          return;
         }
-
-        // Redirect the user to the decoded URL
-        window.location.href = decodedUrl;
       }
     </script>
   </body>
