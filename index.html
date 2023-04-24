@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <script>
+      // Get the URL parameter value for "encodedUrl"
+      const urlParams = new URLSearchParams(window.location.search);
+      const encodedUrl = urlParams.get('encodedUrl');
+
+      // Decode the base64 encoded URL
+      let decodedUrl;
+      try {
+        decodedUrl = atob(encodedUrl);
+      } catch (e) {
+        console.error('Error decoding base64 URL:', e);
+        // Display an error message to the user
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'Error. Unable to redirect.';
+        document.body.appendChild(errorMessage);
+        return;
+      }
+
+      // Redirect the user to the decoded URL
+      window.location.href = decodedUrl;
+    </script>
+  </body>
+</html>
