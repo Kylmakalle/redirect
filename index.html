@@ -21,7 +21,7 @@
         // Decode the base64 encoded URL
         let decodedUrl;
         try {
-          decodedUrl = atob(encodedUrl);
+          decodedUrl = atob(decodeURIComponent(encodedUrl));
           // Check if "decodedUrl" is valid
           if (decodedUrl) {
             // Redirect the user to the decoded URL
