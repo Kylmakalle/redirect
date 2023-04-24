@@ -16,11 +16,9 @@
         decodedUrl = atob(encodedUrl);
       } catch (e) {
         console.error('Error decoding base64 URL:', e);
-        // Display an error message to the user
         const errorMessage = document.createElement('p');
         errorMessage.textContent = 'Error. Unable to redirect.';
         document.body.appendChild(errorMessage);
-        return;
       }
 
       // Redirect the user to the decoded URL
